@@ -1,5 +1,6 @@
-class Grass  extends Kendani{
-    
+var Kendani = require("./class.kendani");
+module.exports = class Grass extends Kendani {
+
     mul() {
         this.multiply++;
         var emptyCells = this.chooseCell(0);

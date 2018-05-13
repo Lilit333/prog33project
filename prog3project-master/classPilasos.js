@@ -1,4 +1,5 @@
-class Pilasos extends Kendani {
+var Kendani = require("./class.kendani");
+module.exports = class Pilasos extends Kendani {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = 8;
@@ -6,7 +7,7 @@ class Pilasos extends Kendani {
         this.maxx = matrix[0].length - 1;
         this.maxy = matrix.length - 1;
     }
-   chooseCell(character) {
+    chooseCell(character) {
         this.getNewCordiantes();
         return super.chooseCell(character); {
 
@@ -14,7 +15,7 @@ class Pilasos extends Kendani {
 
     }
 
-    
+
 
 
     gg() {

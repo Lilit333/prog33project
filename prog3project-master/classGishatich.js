@@ -1,24 +1,9 @@
-class Gishatich {
+var Kendani = require("./class.kendani");
+module.exports = class Gishatich extends Kendani {
     constructor(x, y, index) {
-        this.x = x;
-        this.y = y;
-        this.energy = 8;
-        this.index = index;
-        this.directions = [];
         this.newgazan = [];
     }
-    getNewCordiantes() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
-    }
+
 
     chooseCell1(ch, ch1) {
         this.getNewCordiantes();

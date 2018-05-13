@@ -1,5 +1,6 @@
-class Sunk  extends Kendani{
-   
+var Kendani = require("./class.kendani");
+module.exports = class Sunk extends Kendani {
+
 
     chooseCell1(ch, ch1) {
         this.getNewCordiantes();

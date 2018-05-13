@@ -1,11 +1,11 @@
-class Kendani {
+module.exports = class Kendani {
     constructor(x, y, index) {
         this.x = x;
         this.y = y;
         this.index = index;
         this.multiply = 0;
         this.directions = [];
-        
+
     }
     getNewCordiantes() {
         this.directions = [
@@ -21,7 +21,7 @@ class Kendani {
 
     }
     chooseCell(character) {
-        
+
         var found = [];
         for (var i in this.directions) {
             var x = this.directions[i][0];
