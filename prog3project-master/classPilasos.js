@@ -1,4 +1,4 @@
-var Kendani = require("./class.kendani");
+var Kendani = require("./classkendani");
 module.exports = class Pilasos extends Kendani {
     constructor(x, y, index) {
         super(x, y, index);

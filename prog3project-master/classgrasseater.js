@@ -1,4 +1,4 @@
-var Kendani = require("./class.kendani");
+var Kendani = require("./classkendani");
 module.exports = class GrassEater extends Kendani {
     constructor(x, y, index) {
         super(x, y, index);
@@ -64,8 +64,8 @@ module.exports = class GrassEater extends Kendani {
 
     move() {
 
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        var index = Math.floor(Math.random(1*grasseater.length))
+        var newCell = grasseater[index];
 
         if (newCell) {
             matrix[this.y][this.x] = 0;

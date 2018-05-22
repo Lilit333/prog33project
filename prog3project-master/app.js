@@ -11,19 +11,19 @@ app.listen(3000, function () {
     console.log("Example is running on port 3000");
 });
 
-var grass = require("./class.grass");
-var grasseater = require("./class.grass");
-var Gishatich = require("./class.grass");
-var Kendani = require("./class.grass");
-var Pilasos = require("./class.grass");
-var Sunk = require("./class.grass");
+grass = require("./class.grass");
+grasseater = require("./class.grass");
+Gishatich = require("./class.grass");
+Kendani = require("./class.grass");
+Pilasos = require("./class.grass");
+Sunk = require("./class.grass");
 
 
 
-var matrix = [];
-var y = 40;
-var x = 40;
-var z = 10;
+matrix = [];
+y = 40;
+x = 40;
+z = 10;
 
 
 
@@ -70,33 +70,42 @@ for (var y = 0; y < matrix.length; y++) {
 console.log(grassArr);
 
 
+io.on('connection', function (data) {
 
-for (var i in grassArr) {
-    grassArr[i].mul();
-}
-
-
-for (var i in grassEatArr) {
-    grassEatArr[i].eat();
-
-}
-for (var i in gazanArr) {
-    gazanArr[i].eat();
-}
-for (var i in PilaArr) {
-    PilaArr[i].move();
-}
-for (var i in TunArr) {
-    TunArr[i].mul();
-}
-
-function setup() {
-    while (z >= 0) {
-        var x1 = Math.floor(random(20));
-        var y1 = Math.floor(random(20));
-        if (matrix[y1][x1] == 0) {
-            matrix[y1][x1] = 4;
-            z--;
-        }
+    setInterval(func, 500);
+    function func() {
     }
+    for (var i in grassArr) {
+        grassArr[i].mul();
+    }
+    for (var i in grassEatArr) {
+        grassEatArr[i].eat();
+    }
+    for (var i in gazanArr) {
+        gazanArr[i].eat();
+    }
+    for (var i in PilaArr) {
+        PilaArr[i].move();
+    }
+    for (var i in TunArr) {
+        TunArr[i].mul();
+    }
+    io.sockets.emit('matrix', matrix)
 }
+
+
+
+
+
+
+
+// function setup() {
+//     while (z >= 0) {
+//         var x1 = Math.floor(random(20));
+//         var y1 = Math.floor(random(20));
+//         if (matrix[y1][x1] == 0) {
+//             matrix[y1][x1] = 4;
+//             z--;
+//         }
+//     }
+// }

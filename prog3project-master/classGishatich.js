@@ -1,4 +1,4 @@
-var Kendani = require("./class.kendani");
+var Kendani = require("./classkendani");
 module.exports = class Gishatich extends Kendani {
     constructor(x, y, index) {
         this.newgazan = [];
@@ -40,8 +40,8 @@ module.exports = class Gishatich extends Kendani {
     }
 
     mul() {
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        var index = Math.floor(Math.random(1*Gishatich.length))
+        var newCell = Gishatich[index];
 
         if (newCell) {
             var newX = newCell[0];
@@ -98,8 +98,8 @@ module.exports = class Gishatich extends Kendani {
 
     move() {
 
-        var emptyCells = this.chooseCell1(0, 1);
-        var newCell = random(emptyCells);
+        var index = Math.floor(Math.random(1*Gishatich.length))
+        var newCell = Gishatich[index];
 
 
         if (newCell) {

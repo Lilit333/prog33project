@@ -1,12 +1,18 @@
+var xqanak = [];
+var yqanak = [];
+var side = 10;
 
-    frameRate(1);
-    createCanvas(matrix[0].length * side, matrix.length * side);
+function setup() {
+    createCanvas(xqanak.length * side, yqanak.length * side);
     background('acacac');
+var socket = [];
+}
 
-    
+socket.on("matrix",gcel)
 
 
-function draw() {
+
+function gcel(matrix) {
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
@@ -36,7 +42,6 @@ function draw() {
 
         }
     }
-    
 
 }
 
