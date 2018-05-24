@@ -27,6 +27,9 @@ matrix = [];
 y = 40;
 x = 40;
 z = 10;
+exanak = 0;
+weather = "winter"
+
 
 
 
@@ -38,12 +41,12 @@ for (var i = 0; i < y; i++) {
 }
 matrix[0][0] = 5;
 
-var side = 20;
-var grassArr = [];
-var grassEatArr = [];
-var gazanArr = [];
-var PilaArr = [];
-var TunArr = [];
+side = 20;
+grassArr = [];
+grassEatArr = [];
+gazanArr = [];
+PilaArr = [];
+TunArr = [];
 
 
 for (var y = 0; y < matrix.length; y++) {
@@ -76,44 +79,44 @@ console.log(grassArr);
 
 
 io.on('connection', function (data) {
-    exanak = 0;
     setInterval(func, 500);
     function func() {
-    }
-
-    exanak++;
-    if (exanak % 80 == 0) {
-        weather = "winter"
-    }
-    else if (exanak % 80 == 20) {
-        weather = "spring"
-    }
-    else if (exanak % 80 == 40) {
-        weather = "summer"
-    }
-    else if (exanak % 80 == 60) {
-        weather = "autumn"
-    }
-    for (var i in grassArr) {
-        grassArr[i].mul();
-    }
-    for (var i in grassEatArr) {
-        grassEatArr[i].eat();
-    }
-
-    for (var i in gazanArr) {
-        gazanArr[i].eat();
-    }
-
-    for (var i in PilaArr) {
-        PilaArr[i].move();
-    }
-    for (var i in TunArr) {
-        TunArr[i].mul();
-    }
 
 
-    io.sockets.emit('matrix', matrix)
+        exanak++;
+        if (exanak % 80 == 0) {
+            weather = "winter"
+        }
+        else if (exanak % 80 == 20) {
+            weather = "spring"
+        }
+        else if (exanak % 80 == 40) {
+            weather = "summer"
+        }
+        else if (exanak % 80 == 60) {
+            weather = "autumn"
+        }
+        for (var i in grassArr) {
+            grassArr[i].mul();
+        }
+        for (var i in grassEatArr) {
+            grassEatArr[i].eat();
+        }
+
+        for (var i in gazanArr) {
+            gazanArr[i].eat();
+        }
+
+        for (var i in PilaArr) {
+            PilaArr[i].move();
+        }
+        for (var i in TunArr) {
+            TunArr[i].mul();
+        }
+
+
+        io.sockets.emit('matrix', matrix);
+    }
 });
 
 
