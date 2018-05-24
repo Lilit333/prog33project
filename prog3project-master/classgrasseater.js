@@ -13,10 +13,11 @@ module.exports = class GrassEater extends Kendani {
 
     }
 
-
     mul() {
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        var datarkVandakner = this.chooseCell(0);
+        var tiv = datarkVandakner.length;
+        var patahakanIndex = Math.floor(Math.random() * tiv);
+        var newCell = datarkVandakner[patahakanIndex];
 
         if (newCell) {
             var newX = newCell[0];
@@ -32,8 +33,10 @@ module.exports = class GrassEater extends Kendani {
 
 
     eat() {
-        var newV = this.chooseCell(1);
-        var newCell = random(newV);
+        var datarkVandakner = this.chooseCell(0);
+        var tiv = datarkVandakner.length;
+        var patahakanIndex = Math.floor(Math.random() * tiv);
+        var newCell = datarkVandakner[patahakanIndex];
         if (newCell) {
             var x = newCell[0];
             var y = newCell[1];
@@ -42,6 +45,7 @@ module.exports = class GrassEater extends Kendani {
             matrix[this.y][this.x] = 0;
             this.x = x;
             this.y = y;
+
             for (var i in grassArr) {
                 if (x == grassArr[i].x && y == grassArr[i].y) {
                     grassArr.splice(i, 1);
@@ -53,7 +57,8 @@ module.exports = class GrassEater extends Kendani {
                 this.energy = 6;
             }
         }
-        else {
+
+        else if  (weather != "winter"){
             this.move();
             this.energy--;
             if (this.energy <= 0) {
@@ -64,8 +69,11 @@ module.exports = class GrassEater extends Kendani {
 
     move() {
 
-        var index = Math.floor(Math.random(1*grasseater.length))
-        var newCell = grasseater[index];
+    var datarkVandakner = this.chooseCell(0);
+        var tiv = datarkVandakner.length;
+        var patahakanIndex = Math.floor(Math.random()*tiv);
+        var newCell = datarkVandakner[patahakanIndex];
+
 
         if (newCell) {
             matrix[this.y][this.x] = 0;

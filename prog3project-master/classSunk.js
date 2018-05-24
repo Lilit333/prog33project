@@ -19,8 +19,10 @@ module.exports = class Sunk extends Kendani {
     }
     mul() {
         this.multiply++;
-        var emptyCells = this.chooseCell1(0, 1);
-        var newCell = random(emptyCells);
+        var datarkVandakner = this.chooseCell(0);
+        var tiv = datarkVandakner.length;
+        var patahakanIndex = Math.floor(Math.random()*tiv);
+        var newCell = datarkVandakner[patahakanIndex];
 
         if (newCell && this.multiply >= 15) {
             var newX = newCell[0];

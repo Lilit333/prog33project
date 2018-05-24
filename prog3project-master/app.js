@@ -1,5 +1,7 @@
-var express = require("express");
+var express = require('express');
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 app.use(express.static("public"));
 
@@ -7,16 +9,17 @@ app.get("/", function (req, res) {
     res.redirect("public/index.html");
 });
 
-app.listen(3000, function () {
+server.listen(3000, function () {
     console.log("Example is running on port 3000");
 });
 
-grass = require("./class.grass");
-grasseater = require("./class.grass");
-Gishatich = require("./class.grass");
-Kendani = require("./class.grass");
-Pilasos = require("./class.grass");
-Sunk = require("./class.grass");
+Grass = require("./classgrass");
+GrassEater = require("./classgrasseater");
+Gishatich = require("./classGishatich");
+Kendani = require("./classKendani");
+Pilasos = require("./classPilasos");
+Sunk = require("./classSunk");
+
 
 
 
@@ -42,6 +45,7 @@ var gazanArr = [];
 var PilaArr = [];
 var TunArr = [];
 
+
 for (var y = 0; y < matrix.length; y++) {
     for (var x = 0; x < matrix[y].length; x++) {
         if (matrix[y][x] == 1) {
@@ -65,15 +69,30 @@ for (var y = 0; y < matrix.length; y++) {
             var gr = new Sunk(x, y, 4);
             TunArr.push(gr);
         }
+
     }
 }
 console.log(grassArr);
 
 
 io.on('connection', function (data) {
-
+    exanak = 0;
     setInterval(func, 500);
     function func() {
+    }
+
+    exanak++;
+    if (exanak % 80 == 0) {
+        weather = "winter"
+    }
+    else if (exanak % 80 == 20) {
+        weather = "spring"
+    }
+    else if (exanak % 80 == 40) {
+        weather = "summer"
+    }
+    else if (exanak % 80 == 60) {
+        weather = "autumn"
     }
     for (var i in grassArr) {
         grassArr[i].mul();
@@ -81,17 +100,21 @@ io.on('connection', function (data) {
     for (var i in grassEatArr) {
         grassEatArr[i].eat();
     }
+
     for (var i in gazanArr) {
         gazanArr[i].eat();
     }
+
     for (var i in PilaArr) {
         PilaArr[i].move();
     }
     for (var i in TunArr) {
         TunArr[i].mul();
     }
+
+
     io.sockets.emit('matrix', matrix)
-}
+});
 
 
 
@@ -99,13 +122,4 @@ io.on('connection', function (data) {
 
 
 
-// function setup() {
-//     while (z >= 0) {
-//         var x1 = Math.floor(random(20));
-//         var y1 = Math.floor(random(20));
-//         if (matrix[y1][x1] == 0) {
-//             matrix[y1][x1] = 4;
-//             z--;
-//         }
-//     }
-// }
+

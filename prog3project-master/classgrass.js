@@ -1,12 +1,23 @@
-var Kendani = require("./class.kendani");
+var Kendani = require("./classkendani");
 module.exports = class Grass extends Kendani {
 
     mul() {
         this.multiply++;
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        var datarkVandakner = this.chooseCell(0);
+        var tiv = datarkVandakner.length;
+        var patahakanIndex = Math.floor(Math.random()*tiv);
+        var newCell = datarkVandakner[patahakanIndex];
+        
+        
 
-        if (newCell && this.multiply >= 3) {
+
+
+        var n = 2;
+        if (weather != "spring") {
+            n = 7;
+        }
+
+        if (newCell && this.multiply >= n) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 1;

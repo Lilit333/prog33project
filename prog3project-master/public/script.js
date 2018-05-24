@@ -5,11 +5,10 @@ var side = 10;
 function setup() {
     createCanvas(xqanak.length * side, yqanak.length * side);
     background('acacac');
-var socket = [];
+    socket = io.connect('http://localhost:3000');
 }
 
-socket.on("matrix",gcel)
-
+socket.on("matrix", gcel);
 
 
 function gcel(matrix) {
@@ -42,6 +41,16 @@ function gcel(matrix) {
 
         }
     }
+ function setup() {
+     while (z >= 0) {
+         var x1 = Math.floor(random(20));
+         var y1 = Math.floor(random(20));
+         if (matrix[y1][x1] == 0) {
+             matrix[y1][x1] = 4;
+            z--;
+         }
+    }
+ }
 
 }
 
