@@ -10,8 +10,6 @@ module.exports = class Grass extends Kendani {
         
         
 
-
-
         var n = 2;
         if (weather != "spring") {
             n = 7;

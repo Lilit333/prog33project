@@ -29,7 +29,7 @@ function gcel(matrix) {
             }
             else if (matrix[y][x] == 3) {
                 fill("orange");
-                rect(x * side, y * side, side, side);
+                rect(x * side, y * side, side, side);  
             }
             else if (matrix[y][x] == 5) {
                 fill("blue");
