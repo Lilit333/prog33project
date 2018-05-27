@@ -16,6 +16,7 @@ module.exports = class Grass extends Kendani {
         }
 
         if (newCell && this.multiply >= n) {
+            xotbazmanal++;
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 1;

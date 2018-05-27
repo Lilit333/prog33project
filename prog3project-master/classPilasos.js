@@ -16,8 +16,6 @@ module.exports = class Pilasos extends Kendani {
     }
 
 
-
-
     gg() {
         if (matrix[this.y][this.x] == 1) {
             for (var i in grassArr) {

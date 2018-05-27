@@ -1,5 +1,5 @@
-y = 40;
-x = 40;
+y = 50;
+x = 50;
 var side = 10;
 
 function setup() {
@@ -29,7 +29,7 @@ function gcel(matrix) {
             }
             else if (matrix[y][x] == 3) {
                 fill("orange");
-                rect(x * side, y * side, side, side);  
+                rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 5) {
                 fill("blue");

@@ -24,7 +24,11 @@ module.exports = class Sunk extends Kendani {
         var patahakanIndex = Math.floor(Math.random()*tiv);
         var newCell = datarkVandakner[patahakanIndex];
 
-        if (newCell && this.multiply >= 15) {
+var n = 3;
+        if (weather != "autumn") {
+            n = 9;
+        }
+        if (newCell && this.multiply >= n) {
             var newX = newCell[0];
             var newY = newCell[1];
             if (matrix[newY][newX] == 1) {

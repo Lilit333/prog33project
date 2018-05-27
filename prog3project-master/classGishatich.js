@@ -49,6 +49,7 @@ module.exports = class Gishatich extends Kendani {
         if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];
+            gishatbazmanal++;
             matrix[newY][newX] = 3;
 
             var newgazan = new Gishatich(newX, newY, this.index);
@@ -69,6 +70,7 @@ module.exports = class Gishatich extends Kendani {
 
             var newX = newCell[0];
             var newY = newCell[1];
+            gishatutel++;
             matrix[this.y][this.x] = 0;
 
             this.x = newX;
@@ -92,6 +94,10 @@ module.exports = class Gishatich extends Kendani {
             }
 
         }
+        
+        if (weather != "spring", this.energy <= 10) {
+            this.die();
+        }
         else {
             this.move();
             this.energy--;
@@ -113,6 +119,7 @@ module.exports = class Gishatich extends Kendani {
             matrix[this.y][this.x] = 0;
             var newX = newCell[0];
             var newY = newCell[1];
+            gishatsharjvel++;
             if (matrix[newY][newX] == 1) {
                 for (var i in grassArr) {
                     if (newX == grassArr[i].x && newY == grassArr[i].y) {
@@ -128,6 +135,7 @@ module.exports = class Gishatich extends Kendani {
 
     }
     die() {
+        
         matrix[this.y][this.x] = 0;
         for (var i in gazanArr) {
             if (this.x == gazanArr[i].x && this.y == gazanArr[i].y) {
